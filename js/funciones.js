@@ -2,7 +2,7 @@ const contenedorTareas = document.querySelector(".tareas");
 const formulario = document.querySelector("form");
 const input = document.querySelector(`form input[type="text"]`);
 
-fetch("http://localhost:3000/api-todo")
+fetch("https://api-todo-a931.onrender.com/api-todo")
 .then(respuesta => respuesta.json())
 .then(tareas => {
     tareas.forEach(({id,tarea,terminada}) => {
@@ -14,7 +14,7 @@ formulario.addEventListener("submit", evento => {
     evento.preventDefault();
 
     if(/^[a-záéíóú][a-záéíóú0-9 ]*$/i.test(input.value)){
-        return fetch("http://localhost:3000/api-todo/crear",{
+        return fetch("https://api-todo-a931.onrender.com/api-todo/crear",{
                     method : "POST",
                     body : JSON.stringify({ tarea : input.value }),
                     headers : {

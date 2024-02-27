@@ -65,7 +65,7 @@ class Tarea{
 
     //Funcion para BORRAR tarea
     borrarTarea(){
-        fetch("http://localhost:3000/api-todo/borrar/" + this.id, {
+        fetch("https://api-todo-a931.onrender.com/api-todo/borrar/" + this.id, {
             method : "DELETE"
         })
         .then(respuesta => respuesta.json())
@@ -79,7 +79,7 @@ class Tarea{
 
     //Funcion para cambiar el ESTADO
     toggleEstado(){
-        return fetch(`http://localhost:3000/api-todo/actualizar/${this.id}/2`, {
+        return fetch(`https://api-todo-a931.onrender.com/api-todo/actualizar/${this.id}/2`, {
             method : "PUT"
         })
         .then(respuesta => respuesta.json());
@@ -93,7 +93,7 @@ class Tarea{
             let textoTemporal = this.DOM.children[1].value;
 
             if(textoTemporal.trim() != "" && textoTemporal.trim() != this.textoTarea) {
-                let {resultado} = await fetch(`http://localhost:3000/api-todo/actualizar/${this.id}/1`, {
+                let {resultado} = await fetch(`https://api-todo-a931.onrender.com/api-todo/actualizar/${this.id}/1`, {
                             method : "PUT",
                             body : JSON.stringify({ tarea : textoTemporal.trim() }),
                             headers : {
